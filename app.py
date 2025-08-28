@@ -5,8 +5,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 import time
 import logging
 from datetime import datetime
@@ -42,15 +42,13 @@ if uploaded_file is not None:
         # LinkedIn credentials from secrets
         LINKEDIN_USERNAME = st.secrets["LINKEDIN_USERNAME"]
         LINKEDIN_PASSWORD = st.secrets["LINKEDIN_PASSWORD"]
-
         options = Options()
         options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
 
-        service = Service('/usr/bin/geckodriver')
-
-        driver = webdriver.Firefox(service=service, options=options)
+        service = Service("/usr/bin/chromedriver")
+        driver = webdriver.Chrome(service=service, options=options)
 
         results = []
 
