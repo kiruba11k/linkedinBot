@@ -48,7 +48,8 @@ if uploaded_file is not None:
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
 
-        service = Service('geckodriver')
+        service = Service('/usr/bin/geckodriver')
+
         driver = webdriver.Firefox(service=service, options=options)
 
         results = []
